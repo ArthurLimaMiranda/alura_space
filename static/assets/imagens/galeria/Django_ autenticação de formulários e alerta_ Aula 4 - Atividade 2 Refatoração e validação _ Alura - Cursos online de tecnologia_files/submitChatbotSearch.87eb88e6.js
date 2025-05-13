@@ -1,0 +1,1 @@
+"use strict";!function(){var e=document.querySelector("#luriSearch"),c=document.querySelector("#headerBusca-campoBusca-chatbot"),u=document.querySelector("#headerBusca-campoBusca");e.addEventListener("submit",function(e){c.value=u.value})}();

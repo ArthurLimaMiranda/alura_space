@@ -1,0 +1,2483 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-product="alura"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style class="vjs-styles-defaults">
+      .video-js {
+        width: 300px;
+        height: 150px;
+      }
+
+      .vjs-fluid:not(.vjs-audio-only-mode) {
+        padding-top: 56.25%
+      }
+    </style><style class="vjs-styles-dimensions">
+      .video-player-dimensions {
+        width: 1280px;
+        height: 720px;
+      }
+
+      .video-player-dimensions.vjs-fluid:not(.vjs-audio-only-mode) {
+        padding-top: 56.25%;
+      }
+    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+	
+		
+
+
+
+
+
+
+    
+        
+            
+            <!-- Google Tag Manager -->
+            <script type="text/javascript" async="" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/destination"></script><script type="text/javascript" async="" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/j5yix797ro"></script><script async="" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/OiIKV8DdRsC6DWlZuu25.js"></script><script type="text/javascript" async="" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/23465.js"></script><script type="text/javascript" async="" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/js"></script><script async="" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/qukryqvi.js"></script><script>
+                ;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                    'https://stape.alura.com.br/qukryqvi.js?st='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayerAlura','NTLWWLR');
+            </script>
+            <!-- End Google Tag Manager -->
+        
+        
+    
+
+
+    <script>
+        let dataLayerAlura = window.dataLayerAlura || [];
+        dataLayerAlura.push({
+            'event': 'virtual_page_view',
+            'page_category': 'Aula',
+            
+            
+            
+                
+                    
+                    
+                        
+                        'user_id': '7660673',
+                        'plan': 'Plus',
+                        'type': 'B2C',
+                        'company_id':'',
+                        'first_purchase_date': '2025-05-09',
+                        'last_purchase_date': '2025-05-09',
+                        'expiration_date': '2026-05-09',
+                        'email': '57fe40d47a402bbacdb0dff29fae5fa9319d3f40f1c446ce0c3bd51c34581793'
+                    
+                
+            
+        });
+    </script>
+
+
+
+
+
+
+
+	
+
+	
+
+
+
+
+
+
+
+	<title>Django: autenticação de formulários e alerta: Aula 4 - Atividade 2 Refatoração e validação | Alura - Cursos online de tecnologia</title>
+
+	<link rel="shortcut icon" href="https://cursos.alura.com.br/assets/images/alura/favicon.ico">
+
+	<link href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/css.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com/">
+
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/video-js.7b9aee00.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/silvermine-videojs-quality-selector.min.de928d55.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/prettify.9c184279.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/github.754087c4.css">
+
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/base.f643e441.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/formattedText.e58775de.css">
+
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/container.ca700c42.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/classPage.35ed9dca.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/menuSettings.f67f102b.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/taskProgress.80674897.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/taskMessageInfo.7a825cac.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/alternativeList.49df89b9.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/taskFeedback.6e3e10b9.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/markdown.3ec31c65.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/finishSection.05b28ac1.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/phrase.b8a0763c.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/hqexplanation.3ed41021.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/openquestion.2889f14f.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/textcontent.7298b79f.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/video.9cce2314.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/singlechoice.b545e19f.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/music.8fe6cab6.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/multiplechoice.70f60e4c.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/videodialog.36286910.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/fillintheblank.59273039.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/speakingpractice.13b2c5c5.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/pronunciationpractice.d512f574.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/repetition.492af846.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/genericVideo.4767d8de.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/projectSubmit.ce2f9d80.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/sortBlocks.7b9eb1fc.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/maze.7b784acd.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/extraContentTask.b2d126e6.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/taskContent.1ef47209.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/taskButtons.ed4fd65b.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/dragAndDrop.31396582.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/alert.ec6bb786.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/markdownEditor.600de57a.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/audioPlayer.0a362c88.css">
+	
+	
+	<link rel="stylesheet" type="text/css" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/clipper.647d33f8.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/back-to-top.9a8b5967.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/videoShortcutsModal.e1c7fc31.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/modal.5da2b30a.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/modalCoursePreviewMode.fe9f769f.css">
+	
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/checkpointModal.81d064e3.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/modalScratchSelectTeam.2dc51c81.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/successMessage.cb6c074e.css">
+
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/dark-mode.93e5671c.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/taskFeedbackAnswer.72669c00.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/theater-mode.5995e9f2.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/autoplay-videojs.eefac430.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/linkSubmit.ddbc8743.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/search.1d5ff085.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/engagementSearch.609cb673.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/engagementMenu.37efc872.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/bannerTitleEngagement.36bf4036.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/headerNews.cc911c64.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/header.c4f115a5.css">
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/pointsGraphic.0f3db6d0.css">
+
+	
+	<style type="text/css">
+		.task:before, .video-js .vjs-play-progress {
+			background-color: #2A7AE4;
+		}
+
+
+	</style>
+
+	
+
+	<!-- Remove cookie banner from hubspot -->
+	<style>
+		div#hs-eu-cookie-confirmation {
+			display: none;
+		}
+	</style>
+
+	<script async="" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/hotjar-1638253.js"></script></head>
+
+
+
+
+
+<body class="darkmode theatermode vsc-initialized">
+
+
+	
+		
+			
+
+
+
+
+
+
+
+
+
+    <header class="menu">
+        
+
+
+
+<section id="headerBusca" class="headerBusca">
+    <div class="container">
+        
+            
+            <a href="https://cursos.alura.com.br/search" aria-label="busca" class="headerBusca-icon headerBusca-icon-mobile --mobile-only" role="button" aria-expanded="false" aria-controls="headerBusca-form">
+                <svg class="headerBusca-icon-svg"><use xlink:href="/assets/images/header/icon-busca.svg#busca"></use></svg>
+            </a>
+            
+            <form action="/search" id="headerBusca-form" class="headerBusca-form headerBusca-form--retratil">
+                <div class="search-input-wrapper search-move-on-desktop" tabindex="0" autofocus="">
+                    <div class="search-input-with-icon">
+                        
+                        <input type="search" class="skipKeyPress headerBusca-form-input" id="headerBusca-campoBusca" name="query" placeholder="O que você quer aprender?" aria-label="Barra de pesquisa para buscar o termo desejado ">
+                        <div class="search-buttons">
+                            <div class="search-button__border">
+                                
+                                <button class="headerBusca-submit search-and-send-data" aria-label="Realizar a pesquisa do termo digitado " type="submit">
+                                    Pesquisar
+                                </button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </form>
+        
+    </div>
+</section>
+
+        <div class="menu__topbar --space-container --mobile-only">
+            <button class="menu__toggle-btn"></button>
+        </div>
+
+        <div class="menu__drawer">
+            <div class="menu__logo --desktop-only ">
+                <a href="https://cursos.alura.com.br/dashboard">
+                    <img class="header-logo header-logo-alura" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/logo-alura.svg" alt="alura">
+                </a>
+                
+
+
+
+
+
+
+
+            </div>
+
+            <div class="menu__profile --space-container">
+                <div class="menu__news">
+                    <div class="profile__avatar-name profile__alert ">
+                        <img class="profile__avatar" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/avatar_a.webp" alt="Foto de Arthur Lima de Araújo Miranda">
+                        <a href="#" class="profile__edit-avatar"></a>
+                        <p class="profile__info-name --mobile-only">Arthur</p>
+                        <div class="navigation__item --desktop-only">
+                            <button class="navigation__item-name user-name" aria-controls="profile-menu-desktop" aria-expanded="false">Arthur</button>
+                            <ul id="profile-menu-desktop" class="navigation__sublist">
+                                
+
+
+
+
+
+                                    <li class="navigation__subitem subitem">
+                                        <div class="profile__information">
+                                            <div class="profile__information-avatar">
+                                                <img class="profile__avatar" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/avatar_a.webp" alt="Foto de Arthur Lima de Araújo Miranda">
+                                            </div>
+                                            <div class="profile__information-score">
+                                            <span class="menu__score">
+                                                <h4 class="profile__my-score">Minha pontuação</h4>
+                                                
+
+
+
+
+
+
+<a href="https://cursos.alura.com.br/points" class="points-link header-profile-pontos" data-username="alam-alura0" aria-label="seu total de pontos é 2.6k">
+
+    <div class="levelMenu-header-user-points-xp" aria-hidden="true">
+        <span class="levelMenu-header-user-points-xp-points bootcamp-text-color" data-username="alam-alura0">2.6k</span><span class="levelMenu-header-user-points-xp-name">xp</span>
+    </div>
+
+    
+
+
+
+
+
+
+<div class="pointsGrid pointsGrid--small" aria-label="total de pontos por dia">
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 14/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 15/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 16/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 17/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 18/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 19/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 20/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 21/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 22/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 23/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 24/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 25/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 26/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 27/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 28/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 29/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 30/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 01/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 02/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 03/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 04/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 05/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 06/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 07/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 08/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--low-score">
+			<span class="pointsGrid-cell-details">
+				
+					
+						ganhou <strong>1300 pontos</strong>
+					
+					
+				
+				em 09/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 10/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 11/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--low-score">
+			<span class="pointsGrid-cell-details">
+				
+					
+						ganhou <strong>1300 pontos</strong>
+					
+					
+				
+				em 12/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 13/05/2025
+			</span>
+		</div>
+	
+</div>
+
+</a>
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                
+
+
+
+
+    
+    
+
+    
+    
+
+
+
+
+<li class="navigation__subitem subitem">
+    <a href="https://cursos.alura.com.br/user/alam-alura0" class="subitem__link">
+        <div class="subitem__icon --mine"></div>
+        <div class="subitem__information">
+            <h4 class="subitem__name">Perfil &amp; Certificados</h4>
+            <p class="subitem__description">Gerencie seu perfil e acompanhe sua evolução</p>
+        </div>
+    </a>
+</li>
+
+<li class="navigation__subitem subitem">
+    <a href="https://cursos.alura.com.br/my_profile" class="subitem__link">
+        <div class="subitem__icon --edit"></div>
+        <div class="subitem__information">
+            <h4 class="subitem__name">Editar meu perfil</h4>
+        </div>
+    </a>
+</li>
+
+
+
+
+<li class="navigation__subitem subitem">
+    <a href="https://cursos.alura.com.br/user/payments" class="subitem__link">
+        <div class="subitem__icon --purchases"></div>
+        <div class="subitem__information">
+            <h4 class="subitem__name">Minha matrícula</h4>
+            <p class="subitem__description">Nota fiscal e detalhes do seu plano</p>
+        </div>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+<li class="navigation__subitem subitem">
+    <a href="https://cursos.alura.com.br/signout" class="subitem__link">
+        <div class="subitem__icon --logout"></div>
+        <div class="subitem__information">
+            <h4 class="subitem__name">Sair</h4>
+        </div>
+    </a>
+</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+
+
+
+
+
+
+
+<button aria-label="novidades" class="header-news-button notification-not-seen" aria-controls="headerNews" aria-expanded="false"></button>
+<div id="headerNews" class="header-news header-nav bootcamp-header-dark-theme" aria-hidden="true" tabindex="-1" data-exists-notification="true">
+    
+        <span class="header-news-text">Avisos</span>
+        <ul class="header-news-list --notices">
+            <li class="header-news-item">
+                <a class="header-news-text header-news-text-warning" href="https://cursos.alura.com.br/user/payments?tab=invoice">
+                    Por favor, clique aqui para informar os dados para envio da nota fiscal
+                </a>
+            </li>
+        </ul>
+    
+
+    
+
+        
+
+            <span class="header-news-text bootcamp-text-color">Novidades</span>
+            <ul class="header-news-list">
+
+                
+
+                    <li class="news__item header-news-item--highlighted">
+
+                        <a class="header-news-item-link news__link" href="https://cursos.alura.com.br/course/bigquery-ml-criando-modelos-regressao?utm_source=gnarus&amp;utm_medium=timeline" target="" tabindex="-1">
+                            <img class="news__icon" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/bigquery-ml-criando-modelos-regressao.svg" alt="Ícone de BigQuery ML: criando modelos de regressão">
+                            <div class="news__information">
+                                <span class="news__kind news__kind-course">Curso</span>
+                                <h4 class="news__name bootcamp-text-color-gray">BigQuery ML: criando modelos de regressão</h4>
+                                <span class="news__publishedDate bootcamp-text-color-gray">2 horas atrás</span>
+                            </div>
+                        </a>
+                    </li>
+
+                
+
+                    <li class="news__item header-news-item--highlighted">
+
+                        <a class="header-news-item-link news__link" href="https://cursos.alura.com.br/course/praticando-cobol-modularizacao-linkage?utm_source=gnarus&amp;utm_medium=timeline" target="" tabindex="-1">
+                            <img class="news__icon" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/praticando-cobol-modularizacao-linkage.svg" alt="Ícone de Praticando Cobol: Modularização e linkage">
+                            <div class="news__information">
+                                <span class="news__kind news__kind-course">Curso</span>
+                                <h4 class="news__name bootcamp-text-color-gray">Praticando Cobol: Modularização e linkage</h4>
+                                <span class="news__publishedDate bootcamp-text-color-gray">3 horas atrás</span>
+                            </div>
+                        </a>
+                    </li>
+
+                
+
+                    <li class="news__item header-news-item--highlighted">
+
+                        <a class="header-news-item-link news__link" href="https://cursos.alura.com.br/course/praticando-cobol-arquivos?utm_source=gnarus&amp;utm_medium=timeline" target="" tabindex="-1">
+                            <img class="news__icon" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/praticando-cobol-arquivos.svg" alt="Ícone de Praticando Cobol: trabalhando com arquivos">
+                            <div class="news__information">
+                                <span class="news__kind news__kind-course">Curso</span>
+                                <h4 class="news__name bootcamp-text-color-gray">Praticando Cobol: trabalhando com arquivos</h4>
+                                <span class="news__publishedDate bootcamp-text-color-gray">4 horas atrás</span>
+                            </div>
+                        </a>
+                    </li>
+
+                
+
+                    <li class="news__item header-news-item--highlighted">
+
+                        <a class="header-news-item-link news__link" href="https://cursos.alura.com.br/extra/hipsterstech/acessibilidade-na-web-hipsters-ponto-tech-463-a9700?utm_source=gnarus&amp;utm_medium=timeline" target="" tabindex="-1">
+                            <img class="news__icon" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/step-hipsters.svg" alt="Ícone de Acessibilidade na web – Hipsters Ponto Tech #463">
+                            <div class="news__information">
+                                <span class="news__kind news__kind-course">Podcast</span>
+                                <h4 class="news__name bootcamp-text-color-gray">Acessibilidade na web – Hipsters Ponto Tech #463</h4>
+                                <span class="news__publishedDate bootcamp-text-color-gray">14 horas atrás</span>
+                            </div>
+                        </a>
+                    </li>
+
+                
+
+                    <li class="news__item header-news-item--highlighted">
+
+                        <a class="header-news-item-link news__link" href="https://cursos.alura.com.br/course/praticando-cobol-decisoes-evaluate?utm_source=gnarus&amp;utm_medium=timeline" target="" tabindex="-1">
+                            <img class="news__icon" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/praticando-cobol-decisoes-evaluate.svg" alt="Ícone de Praticando Cobol: Decisões com evaluate">
+                            <div class="news__information">
+                                <span class="news__kind news__kind-course">Curso</span>
+                                <h4 class="news__name bootcamp-text-color-gray">Praticando Cobol: Decisões com evaluate</h4>
+                                <span class="news__publishedDate bootcamp-text-color-gray">1 dia atrás</span>
+                            </div>
+                        </a>
+                    </li>
+
+                
+            </ul>
+            <a class="header-news-text news__more" href="https://cursos.alura.com.br/explore" tabindex="-1">Ver todas</a>
+        
+
+        
+
+    
+
+</div>
+                <span class="menu__score --mobile-only">
+                <h4 class="profile__my-score">Minha pontuação</h4>
+                
+
+
+
+
+
+
+<a href="https://cursos.alura.com.br/points" class="points-link header-profile-pontos" data-username="alam-alura0" aria-label="seu total de pontos é 2.6k">
+
+    <div class="levelMenu-header-user-points-xp" aria-hidden="true">
+        <span class="levelMenu-header-user-points-xp-points bootcamp-text-color" data-username="alam-alura0">2.6k</span><span class="levelMenu-header-user-points-xp-name">xp</span>
+    </div>
+
+    
+
+
+
+
+
+
+<div class="pointsGrid pointsGrid--small" aria-label="total de pontos por dia">
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 14/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 15/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 16/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 17/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 18/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 19/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 20/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 21/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 22/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 23/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 24/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 25/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 26/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 27/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 28/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 29/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 30/04/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 01/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 02/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 03/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 04/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 05/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 06/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 07/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 08/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--low-score">
+			<span class="pointsGrid-cell-details">
+				
+					
+						ganhou <strong>1300 pontos</strong>
+					
+					
+				
+				em 09/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 10/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 11/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--low-score">
+			<span class="pointsGrid-cell-details">
+				
+					
+						ganhou <strong>1300 pontos</strong>
+					
+					
+				
+				em 12/05/2025
+			</span>
+		</div>
+	
+		<div class="pointsGrid-cell pointsGrid-cell--no-score" aria-hidden="true">
+			<span class="pointsGrid-cell-details">
+				
+					
+					
+						não ganhou pontos
+					
+				
+				em 13/05/2025
+			</span>
+		</div>
+	
+</div>
+
+</a>
+            </span>
+            </div>
+
+            <div class="menu__navigation">
+                <nav class="navigation">
+                    <ul class="navigation__list">
+                        <li class="navigation__item --desktop-only">
+                            <a href="https://cursos.alura.com.br/dashboard" class="navigation__item-dashboard">Dashboard</a>
+                        </li>
+                        <li class="navigation__item --mobile-only">
+                            <a href="https://cursos.alura.com.br/dashboard" class="navigation__item-dashboard">Home</a>
+                        </li>
+                        <li class="navigation__item --mobile-only">
+                            <a href="https://cursos.alura.com.br/history" class="navigation__item-dashboard">Meus Cursos</a>
+                        </li>
+                        <li class="navigation__item --mobile-only">
+                            <a href="https://cursos.alura.com.br/learning-guide/engagement" class="navigation__item-dashboard">Formações e Planos de Estudos</a>
+                        </li>
+                        <li class="navigation__item --mobile-only">
+                            <a href="https://cursos.alura.com.br/discover" class="navigation__item-dashboard">Descobrir</a>
+                        </li>
+                        <li class="navigation__item">
+                            <button class="navigation__item-name" aria-controls="community-menu" aria-expanded="false">
+                                Comunidade</button>
+                            <ul id="community-menu" class="navigation__sublist">
+                                
+
+
+
+
+
+    <li class="navigation__subitem subitem">
+        <a href="https://discord.com/oauth2/authorize?client_id=1278070632013238334&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Fcursos.alura.com.br%2Fdiscord%2Fcallback&amp;scope=email+identify+guilds.join" target="_blank" class="subitem__link">
+            <div class="subitem__icon --discord"></div>
+            <div class="subitem__information">
+                <h4 class="subitem__name">Discord</h4>
+                <p class="subitem__description">Estude com outras pessoas na nossa comunidade no Discord</p>
+            </div>
+        </a>
+    </li>
+
+
+
+    <li class="navigation__subitem subitem">
+        <a href="https://cursos.alura.com.br/forum" class="subitem__link">
+            <div class="subitem__icon --forum"></div>
+            <div class="subitem__information">
+                <h4 class="subitem__name">Fórum</h4>
+                <p class="subitem__description">Interaja, converse e tire dúvidas no nosso fórum</p>
+            </div>
+        </a>
+    </li>
+    <li class="navigation__subitem subitem">
+        <a href="https://cursos.alura.com.br/forum/participacao" class="subitem__link">
+            <div class="subitem__icon --forum-mine"></div>
+            <div class="subitem__information">
+                <h4 class="subitem__name">Minhas interações</h4>
+                <p class="subitem__description">Tópicos que participou no Fórum</p>
+            </div>
+        </a>
+    </li>
+
+
+
+
+
+
+
+    
+
+
+                            </ul>
+                        </li>
+                        <li class="navigation__item --mobile-only">
+                            <button class="navigation__item-name" aria-controls="profile-menu" aria-expanded="false">
+                                Configurações</button>
+                            <ul id="profile-menu" class="navigation__sublist">
+                                
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+
+
+
+<li class="navigation__subitem subitem">
+    <a href="https://cursos.alura.com.br/user/alam-alura0" class="subitem__link">
+        <div class="subitem__icon --mine"></div>
+        <div class="subitem__information">
+            <h4 class="subitem__name">Perfil &amp; Certificados</h4>
+            <p class="subitem__description">Gerencie seu perfil e acompanhe sua evolução</p>
+        </div>
+    </a>
+</li>
+
+<li class="navigation__subitem subitem">
+    <a href="https://cursos.alura.com.br/my_profile" class="subitem__link">
+        <div class="subitem__icon --edit"></div>
+        <div class="subitem__information">
+            <h4 class="subitem__name">Editar meu perfil</h4>
+        </div>
+    </a>
+</li>
+
+
+
+
+<li class="navigation__subitem subitem">
+    <a href="https://cursos.alura.com.br/user/payments" class="subitem__link">
+        <div class="subitem__icon --purchases"></div>
+        <div class="subitem__information">
+            <h4 class="subitem__name">Minha matrícula</h4>
+            <p class="subitem__description">Nota fiscal e detalhes do seu plano</p>
+        </div>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+<li class="navigation__subitem subitem">
+    <a href="https://cursos.alura.com.br/signout" class="subitem__link">
+        <div class="subitem__icon --logout"></div>
+        <div class="subitem__information">
+            <h4 class="subitem__name">Sair</h4>
+        </div>
+    </a>
+</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/menu.d6002fc5.js"></script>
+
+		
+		
+	
+	<link rel="stylesheet" href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/classPageMenu.dd9b21cd.css">
+
+
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/avatarOnError.f8bd8956.js"></script>
+
+
+	
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+	<iframe src="https://stape.alura.com.br/ns.html?id=GTM-NTLWWLR"
+			height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+<section class="task class-page-for-VIDEO " data-allow-answer="" data-task-section-exam="false" data-task-type="video" data-task-id="119199" data-author-id="7660673" data-course-code="django-autenticacao-formularios-alerta" data-section-name="Validações" data-section-id="15265" data-section-number="4" data-domain="cursos.alura.com.br" data-hasfeedbackanswer="false" data-url-prefix="/" data-already-seen-task="false" data-course-name="Django: autenticação de formulários e alerta" data-category-name="Programação" data-subcategory-name="Python web" data-workload="10" data-teachers="Bruno Divino">
+
+	<section class="task-body">
+		
+
+		
+
+		
+
+
+
+
+
+
+
+
+
+
+
+<header class="task-body-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+        <button title="Fechar menu" aria-label="Fechar menu" type="button" class="theatermode openMenu-button task-menu-button " id="menu-button-header">
+        </button>
+    
+    <div class="container">
+        <h1 class="task-body-header-title">
+            
+            
+            <svg class="task-body-header-title-svg" aria-label="Atividade de Vídeo">
+                <use xlink:href="/assets/images/classPage/icon-menu-icons.svg#VIDEO"></use>
+            </svg>
+            <small>02</small>
+            <span class="task-body-header-title-text"> Refatoração e validação</span>
+        </h1>
+        
+            <div class="task-body-header-actions">
+                <a href="https://cursos.alura.com.br/course/django-autenticacao-formularios-alerta/task/119199/next" class="task-actions-button task-actions-button-next task-submit bootcamp-primary-button-theme" style="background-color: #2A7AE4">
+                    
+                        
+                        
+                            Próxima Atividade
+                        
+                    
+                </a>
+            </div>
+        
+
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+<div class="theater-video settings">
+	<button type="button" class="settings-button" aria-label="Configurações">
+		<svg class="settings-button-icon">
+			<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#MENU_SETTINGS"></use>
+		</svg>
+	</button>
+	<div class="settings-box">
+		<ul class="settings-box-list">
+			
+				<li class="settings-box-item">
+					<button data-light-mode="Modo claro" data-dark-mode="Modo noturno" class="light-mode-action --menu-setting darkModeButton settings-box-item-darkmode">
+							Modo claro
+					</button>
+				</li>
+			
+			
+				
+				
+				
+					
+						<li class="settings-box-item settings-box-item-player">
+							<a class="video-problems" href="https://cursos.alura.com.br/video/diagnostic?taskId=119199" target="_blank">
+								Problemas com o vídeo?
+								<span hidden="">indisponível</span>
+							</a>
+						</li>
+						<li class="settings-box-item settings-box-item-shortcuts">
+							<button class="shortcuts-action">
+								Atalhos de teclado
+							</button>
+						</li>
+					
+					
+						
+							
+							
+								<li class="settings-box-item settings-box-item-suggestion"><a href="https://cursos.alura.com.br/suggestions/new/django-autenticacao-formularios-alerta/119199/question">Sugerir alteração</a></li>
+							
+						
+					
+				
+				
+			
+			
+		</ul>
+		<span class="settings-box-title"></span>
+	</div>
+</div>
+
+        
+    </div>
+</header>
+
+		
+
+		<div class="task-body__wrapper">
+			<main class="task-body-main container" data-should-warn="false">
+				
+
+
+
+
+
+
+
+	
+	
+	
+	
+		
+
+
+
+
+
+
+
+
+    
+    
+        <section class="video" id="task-content">
+            <div class="container theater-mode">
+                
+
+
+
+
+
+
+
+
+
+
+<div class="video settings">
+	<button type="button" class="settings-button" aria-label="Configurações">
+		<svg class="settings-button-icon">
+			<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#MENU_SETTINGS"></use>
+		</svg>
+	</button>
+	<div class="settings-box">
+		<ul class="settings-box-list">
+			
+				<li class="settings-box-item">
+					<button data-light-mode="Modo claro" data-dark-mode="Modo noturno" class="light-mode-action --menu-setting darkModeButton settings-box-item-darkmode">
+							Modo claro
+					</button>
+				</li>
+			
+			
+				
+				
+				
+					
+						<li class="settings-box-item settings-box-item-player">
+							<a class="video-problems" href="https://cursos.alura.com.br/video/diagnostic?taskId=119199" target="_blank">
+								Problemas com o vídeo?
+								<span hidden="">indisponível</span>
+							</a>
+						</li>
+						<li class="settings-box-item settings-box-item-shortcuts">
+							<button class="shortcuts-action">
+								Atalhos de teclado
+							</button>
+						</li>
+					
+					
+						
+							
+							
+								<li class="settings-box-item settings-box-item-suggestion"><a href="https://cursos.alura.com.br/suggestions/new/django-autenticacao-formularios-alerta/119199/question">Sugerir alteração</a></li>
+							
+						
+					
+				
+				
+			
+			
+		</ul>
+		<span class="settings-box-title"></span>
+	</div>
+</div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="video" class="video-container">
+    <div id="video-container-data" data-max-playback-rate="" data-section-id="15265" data-course="django-autenticacao-formularios-alerta" data-playback-rate="1.0" data-task-id="119199" data-quality="hd" data-course-id="2795" data-autoplay-type="VIDEOS" data-autoplay-enabled="true" data-autoplay-menu-option-none="Desativado" data-autoplay-menu-option-videos="Vídeos" data-autoplay-menu-option-tasks="Atividades" data-autoplay-continue-text="Continuar" data-autoplay-cancel-text="Cancelar" data-autoplay-next-task-modal-title="Próxima Atividade" data-autoplay-still-here-modal-text="Você está aí? Clique no vídeo para continuar a aula" data-next-task-countdown-title="Em 8 segundos" data-next-task-id="119200" data-next-task-title="Associando tabelas" data-next-task-duration="07" data-gnarus-name="alura" data-error-message="&lt;p&gt;Não foi possível reproduzir o vídeo. Para ter um diagnóstico mais detalhado entre na &lt;a href=&quot;/video/diagnostic?taskId=119199&quot;&gt;página de diagnóstico de video&lt;/a&gt;&lt;/p&gt;" data-error-label="Não foi possível reproduzir o vídeo. Para ter um diagnóstico mais detalhado entre em /video/diagnostic?taskId=119199 diagnóstico de video">
+
+        
+    
+          <video-js id="video-player" class="video-js vjs-big-play-centered vjs-default-skin video-player-frame video-player vjs-fluid video-player-dimensions vjs-workinghover vjs-v8 vjs-controls-enabled vjs-has-started vjs-paused vjs-user-inactive" oncontextmenu="return false;" preload="auto" controlslist="nodownload" tabindex="-1" lang="pt-br" translate="no" role="region" aria-label="Video Player"><div class="vsc-controller"></div><video tabindex="-1" controlslist="nodownload" preload="auto" oncontextmenu="return false;" class="vjs-tech" id="video-player_html5_api" autoplay="autoplay" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/781124662-hd.mp4"></video>
+           <div class="vjs-poster vjs-hidden" aria-disabled="false"></div><div class="vjs-title-bar vjs-hidden"><div class="vjs-title-bar-title" id="vjs-title-bar-title-91"></div><div class="vjs-title-bar-description" id="vjs-title-bar-description-92"></div></div><div class="vjs-text-track-display" translate="yes" aria-live="off" aria-atomic="true" style="inset-inline: 194px;"><div style="position: absolute; inset: 0px; margin: 1.5%;"></div></div><div class="vjs-loading-spinner" dir="ltr"><span class="vjs-control-text">Video Player is loading.</span></div><button class="vjs-big-play-button" type="button" title="Play Video" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Play Video</span></button><div class="vjs-control-bar" dir="ltr"><div class="vjs-progress-control vjs-control"><div tabindex="0" class="vjs-progress-holder vjs-slider vjs-slider-horizontal" role="slider" aria-valuenow="39.95" aria-valuemin="0" aria-valuemax="100" aria-label="Progress Bar" aria-valuetext="04:02 of 10:05"><div class="vjs-load-progress" style="width: 58.94%;"><span class="vjs-control-text"><span>Loaded</span>: <span class="vjs-control-text-loaded-percentage">58.94%</span></span><div data-start="0" data-end="357.098666" style="left: 0%; width: 100%;"></div></div><div class="vjs-mouse-display" style="left: 846px;"><div class="vjs-time-tooltip" aria-hidden="true" style="right: -21px;">05:29</div></div><div class="vjs-play-progress vjs-slider-bar" aria-hidden="true" style="width: 39.95%;"><div class="vjs-time-tooltip" aria-hidden="true" style="right: -21px;">04:02</div></div></div></div><button class="vjs-play-control vjs-control vjs-button vjs-paused" type="button" title="Play" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Play</span></button><div class="vjs-volume-panel vjs-control vjs-volume-panel-horizontal"><button class="vjs-mute-control vjs-control vjs-button vjs-vol-3" type="button" title="Mute" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Mute</span></button><div class="vjs-volume-control vjs-control vjs-volume-horizontal"><div tabindex="0" class="vjs-volume-bar vjs-slider-bar vjs-slider vjs-slider-horizontal" role="slider" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Volume Level" aria-live="polite" aria-valuetext="100%"><div class="vjs-mouse-display"><div class="vjs-volume-tooltip" aria-hidden="true"></div></div><div class="vjs-volume-level"><span class="vjs-control-text"></span></div></div></div></div><div class="vjs-current-time vjs-time-control vjs-control"><span class="vjs-control-text" role="presentation">Current Time&nbsp;</span><span class="vjs-current-time-display" role="presentation">4:02</span></div><div class="vjs-time-control vjs-time-divider" aria-hidden="true"><div><span>/</span></div></div><div class="vjs-duration vjs-time-control vjs-control"><span class="vjs-control-text" role="presentation">Duration&nbsp;</span><span class="vjs-duration-display" role="presentation">10:05</span></div><div class="vjs-menu-button vjs-menu-button-popup vjs-control vjs-button"><button class="vjs-autoplay-menu vjs-button" type="button" aria-disabled="false" aria-haspopup="true" aria-expanded="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite"></span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-item" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="false"><span class="vjs-menu-item-text">Desativado</span><span class="vjs-control-text" aria-live="polite"></span></li><li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="true"><span class="vjs-menu-item-text">Vídeos</span><span class="vjs-control-text" aria-live="polite">, selected</span></li><li class="vjs-menu-item" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="false"><span class="vjs-menu-item-text">Atividades</span><span class="vjs-control-text" aria-live="polite"></span></li></ul></div></div><div class="vjs-playback-rate vjs-menu-button vjs-menu-button-popup vjs-control vjs-button"><div class="vjs-playback-rate-value" id="vjs-playback-rate-value-label-video-player_component_324">1x</div><button class="vjs-playback-rate vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Playback Rate" aria-haspopup="true" aria-expanded="false" aria-describedby="vjs-playback-rate-value-label-video-player_component_324"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Playback Rate</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-item" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="false"><span class="vjs-menu-item-text">3x</span><span class="vjs-control-text" aria-live="polite"></span></li><li class="vjs-menu-item" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="false"><span class="vjs-menu-item-text">2.5x</span><span class="vjs-control-text" aria-live="polite"></span></li><li class="vjs-menu-item" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="false"><span class="vjs-menu-item-text">2x</span><span class="vjs-control-text" aria-live="polite"></span></li><li class="vjs-menu-item" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="false"><span class="vjs-menu-item-text">1.75x</span><span class="vjs-control-text" aria-live="polite"></span></li><li class="vjs-menu-item" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="false"><span class="vjs-menu-item-text">1.5x</span><span class="vjs-control-text" aria-live="polite"></span></li><li class="vjs-menu-item" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="false"><span class="vjs-menu-item-text">1.25x</span><span class="vjs-control-text" aria-live="polite"></span></li><li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="true"><span class="vjs-menu-item-text">1x</span><span class="vjs-control-text" aria-live="polite">, selected</span></li><li class="vjs-menu-item" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="false"><span class="vjs-menu-item-text">0.75x</span><span class="vjs-control-text" aria-live="polite"></span></li><li class="vjs-menu-item" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="false"><span class="vjs-menu-item-text">0.5x</span><span class="vjs-control-text" aria-live="polite"></span></li><li class="vjs-menu-item" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="false"><span class="vjs-menu-item-text">0.25x</span><span class="vjs-control-text" aria-live="polite"></span></li></ul></div></div><div class="vjs-subtitles-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"><button class="vjs-subtitles-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Subtitles" aria-haspopup="true" aria-expanded="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Subtitles</span></button><div class="vjs-menu"><ul class="vjs-menu-content"><li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="true"><span class="vjs-menu-item-text">subtitles off</span><span class="vjs-control-text" aria-live="polite">, selected</span></li></ul></div></div><div class="vjs-quality-selector vjs-menu-button vjs-menu-button-popup vjs-control vjs-button"><button class="vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" aria-haspopup="true" aria-expanded="false" title="Open quality selector menu"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Open quality selector menu</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="true"><span class="vjs-menu-item-text">hd</span><span class="vjs-control-text" aria-live="polite">, selected</span></li><li class="vjs-menu-item" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="false"><span class="vjs-menu-item-text">sd</span><span class="vjs-control-text" aria-live="polite"></span></li></ul></div></div><button class="vjs-picture-in-picture-control vjs-hidden vjs-control vjs-button vjs-disabled" type="button" title="Picture-in-Picture" aria-disabled="true" disabled="disabled"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Picture-in-Picture</span></button><button class="vjs-control vjs-button theater-mode-player-icon close" type="button" aria-disabled="false" title="Close Theater Mode"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Close Theater Mode</span></button><button class="vjs-fullscreen-control vjs-control vjs-button" type="button" title="Fullscreen" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Fullscreen</span></button></div><div class="vjs-error-display vjs-modal-dialog vjs-hidden " tabindex="-1" aria-describedby="video-player_component_594_description" aria-hidden="true" aria-label="Modal Window" role="dialog" aria-live="polite"><p class="vjs-modal-dialog-description vjs-control-text" id="video-player_component_594_description">This is a modal window.</p><div class="vjs-modal-dialog-content" role="document"></div></div><div class="vjs-modal-dialog vjs-hidden  vjs-text-track-settings" tabindex="-1" aria-describedby="video-player_component_600_description" aria-hidden="true" aria-label="Caption Settings Dialog" role="dialog" aria-live="polite"><p class="vjs-modal-dialog-description vjs-control-text" id="video-player_component_600_description">Beginning of dialog window. Escape will cancel and close the window.</p><div class="vjs-modal-dialog-content" role="document"><div class="vjs-track-settings-colors"><fieldset class="vjs-fg vjs-track-setting"><legend id="captions-text-legend-video-player_component_600">Text</legend><span class="vjs-text-color"><label id="captions-foreground-color-video-player_component_600" class="vjs-label" for="vjs_select_627">Color</label><select id="vjs_select_627" aria-labelledby="captions-text-legend-video-player_component_600 captions-foreground-color-video-player_component_600"><option id="captions-foreground-color-video-player_component_600-White" value="#FFF" aria-labelledby="captions-text-legend-video-player_component_600 captions-foreground-color-video-player_component_600 captions-foreground-color-video-player_component_600-White" selected="selected">White</option><option id="captions-foreground-color-video-player_component_600-Black" value="#000" aria-labelledby="captions-text-legend-video-player_component_600 captions-foreground-color-video-player_component_600 captions-foreground-color-video-player_component_600-Black">Black</option><option id="captions-foreground-color-video-player_component_600-Red" value="#F00" aria-labelledby="captions-text-legend-video-player_component_600 captions-foreground-color-video-player_component_600 captions-foreground-color-video-player_component_600-Red">Red</option><option id="captions-foreground-color-video-player_component_600-Green" value="#0F0" aria-labelledby="captions-text-legend-video-player_component_600 captions-foreground-color-video-player_component_600 captions-foreground-color-video-player_component_600-Green">Green</option><option id="captions-foreground-color-video-player_component_600-Blue" value="#00F" aria-labelledby="captions-text-legend-video-player_component_600 captions-foreground-color-video-player_component_600 captions-foreground-color-video-player_component_600-Blue">Blue</option><option id="captions-foreground-color-video-player_component_600-Yellow" value="#FF0" aria-labelledby="captions-text-legend-video-player_component_600 captions-foreground-color-video-player_component_600 captions-foreground-color-video-player_component_600-Yellow">Yellow</option><option id="captions-foreground-color-video-player_component_600-Magenta" value="#F0F" aria-labelledby="captions-text-legend-video-player_component_600 captions-foreground-color-video-player_component_600 captions-foreground-color-video-player_component_600-Magenta">Magenta</option><option id="captions-foreground-color-video-player_component_600-Cyan" value="#0FF" aria-labelledby="captions-text-legend-video-player_component_600 captions-foreground-color-video-player_component_600 captions-foreground-color-video-player_component_600-Cyan">Cyan</option></select></span><span class="vjs-text-opacity vjs-opacity"><label id="captions-foreground-opacity-video-player_component_600" class="vjs-label" for="vjs_select_632">Opacity</label><select id="vjs_select_632" aria-labelledby="captions-text-legend-video-player_component_600 captions-foreground-opacity-video-player_component_600"><option id="captions-foreground-opacity-video-player_component_600-Opaque" value="1" aria-labelledby="captions-text-legend-video-player_component_600 captions-foreground-opacity-video-player_component_600 captions-foreground-opacity-video-player_component_600-Opaque" selected="selected">Opaque</option><option id="captions-foreground-opacity-video-player_component_600-SemiTransparent" value="0.5" aria-labelledby="captions-text-legend-video-player_component_600 captions-foreground-opacity-video-player_component_600 captions-foreground-opacity-video-player_component_600-SemiTransparent">Semi-Transparent</option></select></span></fieldset><fieldset class="vjs-bg vjs-track-setting"><legend id="captions-background-video-player_component_600">Text Background</legend><span class="vjs-bg-color"><label id="captions-background-color-video-player_component_600" class="vjs-label" for="vjs_select_642">Color</label><select id="vjs_select_642" aria-labelledby="captions-background-video-player_component_600 captions-background-color-video-player_component_600"><option id="captions-background-color-video-player_component_600-Black" value="#000" aria-labelledby="captions-background-video-player_component_600 captions-background-color-video-player_component_600 captions-background-color-video-player_component_600-Black" selected="selected">Black</option><option id="captions-background-color-video-player_component_600-White" value="#FFF" aria-labelledby="captions-background-video-player_component_600 captions-background-color-video-player_component_600 captions-background-color-video-player_component_600-White">White</option><option id="captions-background-color-video-player_component_600-Red" value="#F00" aria-labelledby="captions-background-video-player_component_600 captions-background-color-video-player_component_600 captions-background-color-video-player_component_600-Red">Red</option><option id="captions-background-color-video-player_component_600-Green" value="#0F0" aria-labelledby="captions-background-video-player_component_600 captions-background-color-video-player_component_600 captions-background-color-video-player_component_600-Green">Green</option><option id="captions-background-color-video-player_component_600-Blue" value="#00F" aria-labelledby="captions-background-video-player_component_600 captions-background-color-video-player_component_600 captions-background-color-video-player_component_600-Blue">Blue</option><option id="captions-background-color-video-player_component_600-Yellow" value="#FF0" aria-labelledby="captions-background-video-player_component_600 captions-background-color-video-player_component_600 captions-background-color-video-player_component_600-Yellow">Yellow</option><option id="captions-background-color-video-player_component_600-Magenta" value="#F0F" aria-labelledby="captions-background-video-player_component_600 captions-background-color-video-player_component_600 captions-background-color-video-player_component_600-Magenta">Magenta</option><option id="captions-background-color-video-player_component_600-Cyan" value="#0FF" aria-labelledby="captions-background-video-player_component_600 captions-background-color-video-player_component_600 captions-background-color-video-player_component_600-Cyan">Cyan</option></select></span><span class="vjs-bg-opacity vjs-opacity"><label id="captions-background-opacity-video-player_component_600" class="vjs-label" for="vjs_select_647">Opacity</label><select id="vjs_select_647" aria-labelledby="captions-background-video-player_component_600 captions-background-opacity-video-player_component_600"><option id="captions-background-opacity-video-player_component_600-Opaque" value="1" aria-labelledby="captions-background-video-player_component_600 captions-background-opacity-video-player_component_600 captions-background-opacity-video-player_component_600-Opaque" selected="selected">Opaque</option><option id="captions-background-opacity-video-player_component_600-SemiTransparent" value="0.5" aria-labelledby="captions-background-video-player_component_600 captions-background-opacity-video-player_component_600 captions-background-opacity-video-player_component_600-SemiTransparent">Semi-Transparent</option><option id="captions-background-opacity-video-player_component_600-Transparent" value="0" aria-labelledby="captions-background-video-player_component_600 captions-background-opacity-video-player_component_600 captions-background-opacity-video-player_component_600-Transparent">Transparent</option></select></span></fieldset><fieldset class="vjs-window vjs-track-setting"><legend id="captions-window-video-player_component_600">Caption Area Background</legend><span class="vjs-window-color"><label id="captions-window-color-video-player_component_600" class="vjs-label" for="vjs_select_657">Color</label><select id="vjs_select_657" aria-labelledby="captions-window-video-player_component_600 captions-window-color-video-player_component_600"><option id="captions-window-color-video-player_component_600-Black" value="#000" aria-labelledby="captions-window-video-player_component_600 captions-window-color-video-player_component_600 captions-window-color-video-player_component_600-Black" selected="selected">Black</option><option id="captions-window-color-video-player_component_600-White" value="#FFF" aria-labelledby="captions-window-video-player_component_600 captions-window-color-video-player_component_600 captions-window-color-video-player_component_600-White">White</option><option id="captions-window-color-video-player_component_600-Red" value="#F00" aria-labelledby="captions-window-video-player_component_600 captions-window-color-video-player_component_600 captions-window-color-video-player_component_600-Red">Red</option><option id="captions-window-color-video-player_component_600-Green" value="#0F0" aria-labelledby="captions-window-video-player_component_600 captions-window-color-video-player_component_600 captions-window-color-video-player_component_600-Green">Green</option><option id="captions-window-color-video-player_component_600-Blue" value="#00F" aria-labelledby="captions-window-video-player_component_600 captions-window-color-video-player_component_600 captions-window-color-video-player_component_600-Blue">Blue</option><option id="captions-window-color-video-player_component_600-Yellow" value="#FF0" aria-labelledby="captions-window-video-player_component_600 captions-window-color-video-player_component_600 captions-window-color-video-player_component_600-Yellow">Yellow</option><option id="captions-window-color-video-player_component_600-Magenta" value="#F0F" aria-labelledby="captions-window-video-player_component_600 captions-window-color-video-player_component_600 captions-window-color-video-player_component_600-Magenta">Magenta</option><option id="captions-window-color-video-player_component_600-Cyan" value="#0FF" aria-labelledby="captions-window-video-player_component_600 captions-window-color-video-player_component_600 captions-window-color-video-player_component_600-Cyan">Cyan</option></select></span><span class="vjs-window-opacity vjs-opacity"><label id="captions-window-opacity-video-player_component_600" class="vjs-label" for="vjs_select_662">Opacity</label><select id="vjs_select_662" aria-labelledby="captions-window-video-player_component_600 captions-window-opacity-video-player_component_600"><option id="captions-window-opacity-video-player_component_600-Transparent" value="0" aria-labelledby="captions-window-video-player_component_600 captions-window-opacity-video-player_component_600 captions-window-opacity-video-player_component_600-Transparent" selected="selected">Transparent</option><option id="captions-window-opacity-video-player_component_600-SemiTransparent" value="0.5" aria-labelledby="captions-window-video-player_component_600 captions-window-opacity-video-player_component_600 captions-window-opacity-video-player_component_600-SemiTransparent">Semi-Transparent</option><option id="captions-window-opacity-video-player_component_600-Opaque" value="1" aria-labelledby="captions-window-video-player_component_600 captions-window-opacity-video-player_component_600 captions-window-opacity-video-player_component_600-Opaque">Opaque</option></select></span></fieldset></div><div class="vjs-track-settings-font"><fieldset class="vjs-font-percent vjs-track-setting"><legend id="captions-font-size-video-player_component_600">Font Size</legend><select id="vjs_select_677" aria-labelledby="captions-font-size-video-player_component_600"><option id="vjs-track-option-678-50" value="0.50" aria-labelledby="captions-font-size-video-player_component_600 vjs-track-option-678-50">50%</option><option id="vjs-track-option-679-75" value="0.75" aria-labelledby="captions-font-size-video-player_component_600 vjs-track-option-679-75">75%</option><option id="vjs-track-option-680-100" value="1.00" aria-labelledby="captions-font-size-video-player_component_600 vjs-track-option-680-100" selected="selected">100%</option><option id="vjs-track-option-681-125" value="1.25" aria-labelledby="captions-font-size-video-player_component_600 vjs-track-option-681-125">125%</option><option id="vjs-track-option-682-150" value="1.50" aria-labelledby="captions-font-size-video-player_component_600 vjs-track-option-682-150">150%</option><option id="vjs-track-option-683-175" value="1.75" aria-labelledby="captions-font-size-video-player_component_600 vjs-track-option-683-175">175%</option><option id="vjs-track-option-684-200" value="2.00" aria-labelledby="captions-font-size-video-player_component_600 vjs-track-option-684-200">200%</option><option id="vjs-track-option-685-300" value="3.00" aria-labelledby="captions-font-size-video-player_component_600 vjs-track-option-685-300">300%</option><option id="vjs-track-option-686-400" value="4.00" aria-labelledby="captions-font-size-video-player_component_600 vjs-track-option-686-400">400%</option></select></fieldset><fieldset class="vjs-edge-style vjs-track-setting"><legend id="captions-edge-style-video-player_component_600">Text Edge Style</legend><select id="vjs_select_696" aria-labelledby="captions-edge-style-video-player_component_600"><option id="vjs-track-option-697-None" value="none" aria-labelledby="captions-edge-style-video-player_component_600 vjs-track-option-697-None" selected="selected">None</option><option id="vjs-track-option-698-Raised" value="raised" aria-labelledby="captions-edge-style-video-player_component_600 vjs-track-option-698-Raised">Raised</option><option id="vjs-track-option-699-Depressed" value="depressed" aria-labelledby="captions-edge-style-video-player_component_600 vjs-track-option-699-Depressed">Depressed</option><option id="vjs-track-option-700-Uniform" value="uniform" aria-labelledby="captions-edge-style-video-player_component_600 vjs-track-option-700-Uniform">Uniform</option><option id="vjs-track-option-701-Dropshadow" value="dropshadow" aria-labelledby="captions-edge-style-video-player_component_600 vjs-track-option-701-Dropshadow">Drop shadow</option></select></fieldset><fieldset class="vjs-font-family vjs-track-setting"><legend id="captions-font-family-video-player_component_600">Font Family</legend><select id="vjs_select_711" aria-labelledby="captions-font-family-video-player_component_600"><option id="vjs-track-option-712-ProportionalSansSerif" value="proportionalSansSerif" aria-labelledby="captions-font-family-video-player_component_600 vjs-track-option-712-ProportionalSansSerif" selected="selected">Proportional Sans-Serif</option><option id="vjs-track-option-713-MonospaceSansSerif" value="monospaceSansSerif" aria-labelledby="captions-font-family-video-player_component_600 vjs-track-option-713-MonospaceSansSerif">Monospace Sans-Serif</option><option id="vjs-track-option-714-ProportionalSerif" value="proportionalSerif" aria-labelledby="captions-font-family-video-player_component_600 vjs-track-option-714-ProportionalSerif">Proportional Serif</option><option id="vjs-track-option-715-MonospaceSerif" value="monospaceSerif" aria-labelledby="captions-font-family-video-player_component_600 vjs-track-option-715-MonospaceSerif">Monospace Serif</option><option id="vjs-track-option-716-Casual" value="casual" aria-labelledby="captions-font-family-video-player_component_600 vjs-track-option-716-Casual">Casual</option><option id="vjs-track-option-717-Script" value="script" aria-labelledby="captions-font-family-video-player_component_600 vjs-track-option-717-Script">Script</option><option id="vjs-track-option-718-SmallCaps" value="small-caps" aria-labelledby="captions-font-family-video-player_component_600 vjs-track-option-718-SmallCaps">Small Caps</option></select></fieldset></div><div class="vjs-track-settings-controls"><button class="vjs-default-button" type="button" title="restore all settings to the default values" aria-disabled="false">Reset</button><button class="vjs-done-button" type="button" title="restore all settings to the default values" aria-disabled="false">Done</button></div></div><button class="vjs-close-button vjs-control vjs-button" type="button" title="Close Modal Dialog" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Close Modal Dialog</span></button><p class="vjs-control-text">End of dialog window.</p></div><div class="vjs-modal-dialog vjs-hidden autoplay-not-watching-alert" tabindex="-1" aria-describedby="video-player_component_877_description" aria-hidden="true" aria-label="Modal Window" role="dialog" aria-live="polite"><p class="vjs-modal-dialog-description vjs-control-text" id="video-player_component_877_description">This is a modal window. This modal can be closed by pressing the Escape key or activating the close button.</p><div class="vjs-modal-dialog-content" role="document">Você está aí? Clique no vídeo para continuar a aula<button class="vjs-big-play-button" type="button" title="Play Video" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Play Video</span></button></div><button class="vjs-close-button vjs-control vjs-button" type="button" title="Close Modal Dialog" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Close Modal Dialog</span></button></div><div class="vjs-modal-dialog vjs-hidden autoplay-alert" tabindex="-1" aria-describedby="video-player_component_909_description" aria-hidden="true" aria-label="Modal Window" role="dialog" aria-live="polite"><p class="vjs-modal-dialog-description vjs-control-text" id="video-player_component_909_description">This is a modal window. This modal can be closed by pressing the Escape key or activating the close button.</p><div class="vjs-modal-dialog-content" role="document">Próxima Atividade<button class="vjs-control vjs-button next-task-timer-text" type="button" aria-disabled="false" title="Em 8 segundos"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Em 8 segundos</span></button><button class="vjs-control vjs-button autoplay-nexttask-button" type="button" aria-disabled="false" title="Associando tabelas (07min)"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Associando tabelas (07min)</span></button><div class="vjs-control vjs-button autoplay-continue-button" tabindex="0" role="button" aria-disabled="false" title="Continuar"><span class="vjs-icon-placeholder" aria-hidden="true"><svg width="96" height="96" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="58" y="31.052" width="8" height="35.419" rx="4" fill="#fff"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M52.978 46.92L31.445 31.493c-1.507-1.102-3.445 0-3.445 1.763V64.11c0 1.763 1.938 2.865 3.445 1.763l21.533-15.427c1.077-.882 1.077-2.645 0-3.526z" fill="#fff"></path><circle cy="48" cx="48" r="45" class="border-continue-button" stroke="#fff" stroke-width="6"></circle></svg></span><span class="vjs-control-text" aria-live="polite">Continuar</span></div><button class="vjs-control vjs-button autoplay-cancel-button" type="button" aria-disabled="false" title="Cancelar"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Cancelar</span></button></div><button class="vjs-close-button vjs-control vjs-button" type="button" title="Close Modal Dialog" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Close Modal Dialog</span></button></div></video-js>
+        </div>
+</section>
+                
+                
+                    <section id="transcription" class="video-transcription transcription-toggle">
+                        
+                            <h2 class="video-transcription-title">Transcrição</h2>
+                        
+                        <div class="formattedText" data-external-links="">
+                                <p>Vamos fazer o <em>login</em> na nossa plataforma, com o usuário "Lucas". A visualização dos <em>cards</em> ficou fora de formatação, porque usamos a referência do <em>Bootstrap</em> no <em>index</em>.</p>
+<p>O <em>Bootstrap</em> tem algumas classes básicas que entram em conflito com o arquivo de <em>stylesheet</em>.
+ Se acessarmos "setup &gt; static &gt; styles &gt; style.css", 
+encontraremos algumas classes que entram em conflito com classes já 
+definidas no arquivo de <em>CSS</em>.</p>
+<p>Vamos acessar o arquivo do <em>Bootstrap</em> em "templates &gt; galeria &gt; base.html". Vamos copiar a referência e levá-la para o navegador.</p>
+<p>Na página que abrirá, visualizaremos o <em>CSS</em> do <em>Bootstrap</em>. Nela, algumas classes têm configurações padronizadas de <em>CSS</em>. Para tentar resolver isso, vamos remover a parte do <em>Bootstrap</em>.</p>
+<p>No arquivo "base.html", removeremos as linhas 13 e 14. Agora reiniciaremos a aplicação, fazendo <em>logout</em> e <em>login</em> novamente, na sequência.</p>
+<p>No botão "Logout", selecionaremos "Inspecionar". Na nova aba que 
+abrirá, clicaremos na caixa de mensagens e, logo depois, na parte de <em>styles</em>. Lá, conseguiremos visualizar o <em>CSS</em>.</p>
+<p>Vamos copiar as configurações abaixo da classe <code>.alert</code>. De volta ao código, voltaremos a "style.css" e adicionaremos as linhas de código que acabamos de copiar no fim do arquivo.</p>
+<p>Faremos a mesma coisa com o código da classe <code>.alert-primary</code>: o levaremos do navegador para a <em>IDE</em>:</p>
+<pre class="prettyprint"><code class="hljs language-css"><span class="hljs-selector-class">.alert</span> {
+    <span class="hljs-attr">--bs-alert-bg</span>: transparent;
+    <span class="hljs-attr">--bs-alert-padding-x</span>: <span class="hljs-number">1rem</span>;
+    <span class="hljs-attr">--bs-alert-padding-y</span>: <span class="hljs-number">1rem</span>;
+    <span class="hljs-attr">--bs-alert-margin-bottom</span>: <span class="hljs-number">1rem</span>;
+    <span class="hljs-attr">--bs-alert-color</span>: inherit;
+    <span class="hljs-attr">--bs-alert-border-color</span>: transparent;
+    <span class="hljs-attr">--bs-alert-border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--bs-alert-border-color);
+    <span class="hljs-attr">--bs-alert-border-radius</span>: <span class="hljs-number">0.375rem</span>;
+    <span class="hljs-attribute">position</span>: relative;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-built_in">var</span>(--bs-alert-padding-y) <span class="hljs-built_in">var</span>(--bs-alert-padding-x);
+    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-built_in">var</span>(--bs-alert-margin-bottom);
+    <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--bs-alert-color);
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--bs-alert-bg);
+    <span class="hljs-attribute">border</span>: <span class="hljs-built_in">var</span>(--bs-alert-border);
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-built_in">var</span>(--bs-alert-border-radius);
+}
+
+<span class="hljs-selector-class">.alert-primary</span> {
+    <span class="hljs-attr">--bs-alert-color</span>: <span class="hljs-number">#084298</span>;
+    <span class="hljs-attr">--bs-alert-bg</span>: <span class="hljs-number">#cfe2ff</span>;
+    <span class="hljs-attr">--bs-alert-border-color</span>: <span class="hljs-number">#b6d4fe</span>;
+}</code><button type="button" class="clipit">Copiar código</button></pre><p>Vamos sair e logar novamente na aplicação, para reiniciar. Agora o cards estão funcionais e com a visualização que gostaríamos.</p>
+<p>Vamos instaurar uma regra de negócios que só libere a visualização da
+ plataforma para as pessoas que estiverem logadas. As pessoas que não 
+estiverem logadas serão redirecionadas para a página de login.</p>
+<p>Para isso acessaremos "galeria &gt; views &gt; views.py". 
+Implantaremos, nesse arquivo, um esquema de autenticação. Queremos que 
+só usuários logados tenham acesso à página do <em>index</em>.</p>
+<p>Na primeira linha de código, passaremos um <code>redirect</code> logo depois de <code>get_object_or_404</code>.</p>
+<p>Para isso, abaixo de <code>def index(request):</code>, passaremos <code>if request.user.is_authenticated:</code>. Abaixo, passaremos <code>return redirect('login')</code>.</p>
+<p>Faremos o mesmo em <code>def buscar(request):</code>. Também é importante importar a mensagem de erro, passando <code>from django.contrib import messages</code>:</p>
+<pre class="prettyprint"><code class="hljs language-python"><span class="hljs-keyword">from</span> django.shortcuts <span class="hljs-keyword">import</span> render, get_object_or_404, redirect
+
+<span class="hljs-keyword">from</span> galeria.models <span class="hljs-keyword">import</span> Fotografia
+
+<span class="hljs-keyword">from</span> django.contrib <span class="hljs-keyword">import</span> messages
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">index</span>(<span class="hljs-params">request</span>):
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> request.user.is_authenticated:
+        messages.error(request, <span class="hljs-string">'Usuário não logado'</span>)
+        <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">'login'</span>)
+
+    fotografias = Fotografia.objects.order_by(<span class="hljs-string">"data_fotografia"</span>).<span class="hljs-built_in">filter</span>(publicada=<span class="hljs-literal">True</span>)
+    <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">'galeria/index.html'</span>, {<span class="hljs-string">"cards"</span>: fotografias})
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">imagem</span>(<span class="hljs-params">request, foto_id</span>):
+    fotografia = get_object_or_404(Fotografia, pk=foto_id)
+    <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">'galeria/imagem.html'</span>, {<span class="hljs-string">"fotografia"</span>: fotografia})
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">buscar</span>(<span class="hljs-params">request</span>):
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> request.user.is_authenticated:
+        messages.error(request, <span class="hljs-string">'Usuário não logado'</span>)
+        <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">'login'</span>)
+
+    fotografias = Fotografia.objects.order_by(<span class="hljs-string">"data_fotografia"</span>).<span class="hljs-built_in">filter</span>(publicada=<span class="hljs-literal">True</span>)
+
+    <span class="hljs-keyword">if</span> <span class="hljs-string">"buscar"</span> <span class="hljs-keyword">in</span> request.GET:
+        nome_a_buscar = request.GET[<span class="hljs-string">'buscar'</span>]
+        <span class="hljs-keyword">if</span> nome_a_buscar:
+            fotografias = fotografias.<span class="hljs-built_in">filter</span>(nome__icontains=nome_a_buscar)
+
+    <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">"galeria/buscar.html"</span>, {<span class="hljs-string">"cards"</span>: fotografias})</code><button type="button" class="clipit">Copiar código</button></pre><p>Depois disso, só usuários logados conseguirão acessar o <em>index</em>.</p>
+                        </div>
+                    </section>
+                    
+                        <button class="video-transcription-button transcription-toggle" aria-hidden="true" style="display: none;">
+                            <span class="video-transcription-button-text">
+                                    continuar lendo</span>
+                        </button>
+                    
+                
+            </div>
+        </section>
+    
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+				
+					
+
+
+
+
+
+
+
+	
+	
+		
+
+		<section class="task-actions">
+			<div class="container">
+				
+
+
+
+
+
+
+    
+        
+        <a href="https://cursos.alura.com.br/forum/curso-django-autenticacao-formularios-alerta/exercicio-refatoracao-e-validacao/119199/novo" class=" task-actions-button task-actions-button-forum bootcamp-secondary-button-theme" target="_blank">
+            
+                
+                
+                    Discutir no Fórum
+                
+            
+        </a>
+    
+
+
+
+				
+				
+				
+				
+					<a href="https://cursos.alura.com.br/course/django-autenticacao-formularios-alerta/task/119199/next" style="background-color: #2A7AE4" class="task-actions-button task-body-actions-button task-actions-button-next bootcamp-next-button bootcamp-primary-button-theme">
+						
+							
+							
+								Próxima Atividade
+							
+						
+					</a>
+				
+			</div>
+		</section>
+	
+
+
+				
+				
+					
+
+
+
+
+<div class="modalContainer">
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-content">
+            <section class="modal-content-header">
+                <h4 class="modal-content-header-title">Atalhos de teclado</h4>
+                <button type="button" class="modal-content-header-close" aria-label="Fechar modal"></button>
+            </section>
+            <section class="modal-body">
+                <div class="normal-shortcut-keys">
+                    <table class="dashboard-table bootcamp-text-color-gray shortcut-table">
+                        <tbody>
+                        <tr>
+                            <td><img src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/k-key.svg" alt="Letra k do teclado"> </td>
+                            <td>Tocar/Pausar o vídeo</td>
+                        </tr>
+                        <tr>
+                            <td><img src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/m-key.svg" alt="Letra m do teclado"></td>
+                            <td>Mutar/Desmutar o vídeo</td>
+                        </tr>
+                        <tr>
+                            <td><img src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/f-key.svg" alt="Letra f do teclado"></td>
+                            <td>Ativar/Desativar a tela cheia (full screen)</td>
+                        </tr>
+                        <tr>
+                            <td><img src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/left-key.svg" alt="Seta para a esquerda"></td>
+                            <td>Voltar 10 segundos a reprodução do vídeo</td>
+                        </tr>
+                        <tr>
+                            <td><img src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/right-key.svg" alt="Seta para a direita"></td>
+                            <td>Avançar 10 segundos a reprodução do vídeo</td>
+                        </tr>
+                        <tr>
+                            <td><img src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/up-key.svg" alt="Seta para cima"></td>
+                            <td>Aumentar o volume em 5%</td>
+                        </tr>
+                        <tr>
+                            <td><img src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/down-key.svg" alt="Seta para baixo"></td>
+                            <td>Diminuir o volume em 5%</td>
+                        </tr>
+                        <tr>
+                            <td><img src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/space-key.svg" alt="Tecla espaço"></td>
+                            <td>Toca/Pausa o vídeo quando nenhum botão estiver em foco (selecionado).</td>
+                        </tr>
+                        <tr>
+                            <td><img src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/space-key.svg" alt="Tecla espaço"></td>
+                            <td>Ativar/Desativar a função do botão que estiver em foco.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="function-shortcut-keys">
+                    <table class="dashboard-table bootcamp-text-color-gray shortcut-table">
+                        <caption class="shortcuts-keys-title">Teclas de função</caption>
+                        <tbody>
+                            <tr>
+                                <td><img src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/play-key.svg" alt="Tecla multimídia Play"></td>
+                                <td>Tocar o vídeo</td>
+                            </tr>
+                            <tr>
+                                <td><img src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/pause-key.svg" alt="Tecla multimídia Pause"></td>
+                                <td>Pausar o vídeo</td>
+                            </tr>
+                            <tr>
+                                <td><img src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/stop-key.svg" alt="Tecla multimídia Stop"></td>
+                                <td>Parar o vídeo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+				
+			</main>
+			
+		</div>
+	</section>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<aside class="task-menu task-menu-iframe" style="position: fixed;">
+	<section class="task-menu-header">
+			<a class="task-menu__return-to-course" href="https://cursos.alura.com.br/course/django-autenticacao-formularios-alerta" title="Ir para página do curso">
+		</a><div class="task-menu-header-info"><a class="task-menu__return-to-course" href="https://cursos.alura.com.br/course/django-autenticacao-formularios-alerta" title="Ir para página do curso">
+			</a><a class="task-menu-header-info-title" href="https://cursos.alura.com.br/course/django-autenticacao-formularios-alerta" title="Ir para página do curso">
+				
+					
+					
+						<img src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/django-autenticacao-formularios-alerta.svg" alt="ícone Django: autenticação de formulários e alerta" class="task-menu-header-info-title-icon " width="37.5px" height="37.5px">
+					
+				
+				<h2 class="task-menu-header-info-title-text">Django: autenticação de formulários e alerta</h2>
+			</a>
+			
+				<div class="task-menu-header-info-progress">
+					
+					<span class="task-menu-header-info-progress-percentage ">38%</span>
+					
+						
+						
+							
+						
+					
+					<span class="task-menu-header-info-progress-bar" style="background-image: linear-gradient(to right, #9de482, #9de482 38%, transparent 38%);"></span>
+				</div>
+			
+		</div>
+	</section>
+	
+		<form class="task-menu-header-search" target="_blank" action="/search/course/django-autenticacao-formularios-alerta" method="get">
+			<label class="task-menu-header-search-title" for="query">Buscar neste curso</label>
+			<input class="task-menu-header-search-input" name="query" id="query" type="text" required="">
+			<button class="task-menu-header-search-button">Pesquisar <img aria-hidden="true" class="task-menu-header-search-button-img" src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/icon-new-page.svg"></button>
+		</form>
+	
+	
+	<section class="task-menu-section sr-only">
+		<div class="task-menu-section-title">
+			<span class="task-menu-section-title-number ">Aula<strong>04</strong>
+				<span>de 05</span>
+			</span>
+			<h3 class="task-menu-section-title-text">
+				Validações
+			</h3>
+		</div>
+	</section>
+	<section class="task-menu-sections">
+		<h2 class="task-menu-sections-title">
+			Aula Atual
+		</h2>
+		<select class="task-menu-sections-select" onchange="location.href='/course/django-autenticacao-formularios-alerta/section/'+this.value+'/tasks';">
+			
+				<option value="15262">01. App usuários</option>
+			
+				<option value="15263">02. Formulário no Django</option>
+			
+				<option value="15264">03. Autenticação de usuários</option>
+			
+				<option value="15265" selected="selected">04. Validações</option>
+			
+				<option value="15266">05. Refatoração</option>
+			
+		</select>
+	</section>
+	<nav class="task-menu-nav">
+		<h2 class="task-menu-nav-title">
+			
+				
+				
+					Atividades
+				
+			
+			<span>2 de 8</span>
+		</h2>
+		<ul class="task-menu-nav-list">
+			
+				
+				<li class="task-menu-nav-item ">
+					<a href="https://cursos.alura.com.br/course/django-autenticacao-formularios-alerta/task/119344" class="task-menu-nav-item-link task-menu-nav-item-link-HQ_EXPLANATION">
+						
+						
+					<svg class="task-menu-nav-item-svg task-menu-nav-item-svg--done" aria-label="Atividade de Explicação concluída">
+						<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#HQ_EXPLANATION"></use>
+					</svg>
+					<span class="task-menu-nav-item-number">01</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="Projeto da aula anterior">
+							Projeto da aula anterior
+						</span>
+						
+					</span></a>
+				</li>
+			
+				
+				<li class="task-menu-nav-item task-menu-nav-item--selected">
+					<a href="https://cursos.alura.com.br/course/django-autenticacao-formularios-alerta/task/119199" class="task-menu-nav-item-link task-menu-nav-item-link-VIDEO">
+						
+						
+					<svg class="task-menu-nav-item-svg task-menu-nav-item-svg--done" aria-label="Atividade de Vídeo não concluída">
+						<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#VIDEO"></use>
+					</svg>
+					<span class="task-menu-nav-item-number">02</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="Refatoração e validação">
+							Refatoração e validação
+						</span>
+						
+						<span class="task-menu-nav-item-infos">
+							
+								<span class="task-menu-nav-item-videoDuration" title="Ir para o Vídeo">11min</span>
+							
+						</span>
+					</span>
+					
+					</a>
+				</li>
+			
+				
+				<li class="task-menu-nav-item ">
+					<a href="https://cursos.alura.com.br/course/django-autenticacao-formularios-alerta/task/119200" class="task-menu-nav-item-link task-menu-nav-item-link-VIDEO">
+						
+						
+					<svg class="task-menu-nav-item-svg " aria-label="Atividade de Vídeo não concluída">
+						<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#VIDEO"></use>
+					</svg>
+					<span class="task-menu-nav-item-number">03</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="Associando tabelas">
+							Associando tabelas
+						</span>
+						
+						<span class="task-menu-nav-item-infos">
+							
+								<span class="task-menu-nav-item-videoDuration" title="Ir para o Vídeo">07min</span>
+							
+						</span>
+					</span>
+					
+					</a>
+				</li>
+			
+				
+				<li class="task-menu-nav-item ">
+					<a href="https://cursos.alura.com.br/course/django-autenticacao-formularios-alerta/task/119201" class="task-menu-nav-item-link task-menu-nav-item-link-VIDEO">
+						
+						
+					<svg class="task-menu-nav-item-svg " aria-label="Atividade de Vídeo não concluída">
+						<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#VIDEO"></use>
+					</svg>
+					<span class="task-menu-nav-item-number">04</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="Validação clean">
+							Validação clean
+						</span>
+						
+						<span class="task-menu-nav-item-infos">
+							
+								<span class="task-menu-nav-item-videoDuration" title="Ir para o Vídeo">08min</span>
+							
+						</span>
+					</span>
+					
+					</a>
+				</li>
+			
+				
+				<li class="task-menu-nav-item ">
+					<a href="https://cursos.alura.com.br/course/django-autenticacao-formularios-alerta/task/119202" class="task-menu-nav-item-link task-menu-nav-item-link-VIDEO">
+						
+						
+					<svg class="task-menu-nav-item-svg " aria-label="Atividade de Vídeo não concluída">
+						<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#VIDEO"></use>
+					</svg>
+					<span class="task-menu-nav-item-number">05</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="Mensagens de erro">
+							Mensagens de erro
+						</span>
+						
+						<span class="task-menu-nav-item-infos">
+							
+								<span class="task-menu-nav-item-videoDuration" title="Ir para o Vídeo">08min</span>
+							
+						</span>
+					</span>
+					
+					</a>
+				</li>
+			
+				
+				<li class="task-menu-nav-item ">
+					<a href="https://cursos.alura.com.br/course/django-autenticacao-formularios-alerta/task/119345" class="task-menu-nav-item-link task-menu-nav-item-link-SINGLE_CHOICE">
+						
+						
+					<svg class="task-menu-nav-item-svg " aria-label="Atividade de Única escolha não concluída">
+						<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#SINGLE_CHOICE"></use>
+					</svg>
+					<span class="task-menu-nav-item-number">06</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="Mensagem não exibida">
+							Mensagem não exibida
+						</span>
+						
+					</span></a>
+				</li>
+			
+				
+				<li class="task-menu-nav-item ">
+					<a href="https://cursos.alura.com.br/course/django-autenticacao-formularios-alerta/task/119346" class="task-menu-nav-item-link task-menu-nav-item-link-TEXT_CONTENT">
+						
+						
+					<svg class="task-menu-nav-item-svg " aria-label="Atividade de Sem Resposta do Aluno não concluída">
+						<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#DO_AFTER_ME"></use>
+					</svg>
+					<span class="task-menu-nav-item-number">07</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="Faça como eu fiz">
+							Faça como eu fiz
+						</span>
+						
+					</span></a>
+				</li>
+			
+				
+				<li class="task-menu-nav-item ">
+					<a href="https://cursos.alura.com.br/course/django-autenticacao-formularios-alerta/task/119347" class="task-menu-nav-item-link task-menu-nav-item-link-HQ_EXPLANATION">
+						
+						
+					<svg class="task-menu-nav-item-svg " aria-label="Atividade de Explicação não concluída">
+						<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#WHAT_WE_LEARNED"></use>
+					</svg>
+					<span class="task-menu-nav-item-number">08</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="O que aprendemos?">
+							O que aprendemos?
+						</span>
+						
+					</span></a>
+				</li>
+			
+			
+		</ul>
+
+		
+
+		
+			
+			
+				<section class="task-menu-others" style="padding-bottom: 3rem;">
+					
+						
+						<a href="https://cursos.alura.com.br/forum/curso-django-autenticacao-formularios-alerta/todos" class="task-menu-others-link task-menu-others-link-forum" title="Ir para o fórum do curso" target="_blank">
+							
+								
+								
+									Fórum do curso
+								
+							
+						</a>
+					
+				</section>
+			
+		
+	</nav>
+
+</aside>
+
+
+
+    
+
+</section><div class="full-screen__panel" style="display: none;">
+				<img id="full-screen__image" class="full-screen__image" src="" alt="">
+				<div class="full-screen__actions">
+				<button class="button buttonAction partitura-download">Anterior</button><button class="button buttonAction partitura-download">Sair</button><button class="button buttonAction partitura-download">Próximo</button></div> 
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+	
+	<!-- Hotjar Tracking Code for https://cursos.alura.com.br -->
+	<script>
+		(function(h,o,t,j,a,r){
+			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+			h._hjSettings={hjid:1638253,hjsv:6};
+			a=o.getElementsByTagName('head')[0];
+			r=o.createElement('script');r.async=1;
+			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+	
+
+
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/jquery-3.6.0.min.7c14a783.js"></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/buttonToggle.41524be9.js"></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/sectionMenu.2bb600e2.js" async=""></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/submitTaskVerifier.e6e3bd5f.js"></script>
+
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/purify.min.549c43ec.js"></script>
+
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/caret.2e5c0c9d.js" async=""></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/keydownWatchers.fdc4ec79.js" async=""></script>
+
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/highlight.min.9b99da81.js" async=""></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/highlight.init.5870d8cf.js" async=""></script>
+
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/preventsMultipleInteractions.19502e19.js" async=""></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/assessment.78d1fb98.js" async=""></script>
+
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/news.4f082bd3.js" async=""></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/populateGrid.41971c83.js"></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/makeHeaderPoints.ed06bad3.js" async=""></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/submitChatbotSearch.87eb88e6.js" async=""></script>
+
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/menuSettings.fb011b3b.js"></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/aria.a82b16ad.js"></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/ProjectSubmit.39c1017a.js"></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/LinkSubmit.e67a456a.js"></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/classPage.eebb7451.js"></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/buttonDarkMode.fd8f514a.js"></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/phrase.dfd04ee1.js"></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/feedback.7962df4a.js"></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/ExtraContentProgressRequest.7f84629c.js"></script>
+
+
+	<!-- video specific -->
+	<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/video.min.ea7aa2f3.js"></script>
+	<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/silvermine-videojs-quality-selector.min.a5df5b2a.js"></script>
+	<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/dash.all.min.831efc7a.js"></script>
+	<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/videojs-dash.min.a5cb38de.js"></script>
+	<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/transcriptionToggle.afde441e.js"></script>
+
+
+	
+		<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/TheaterMode.e8c1420f.js"></script>
+		<script>new TheaterModeToggler().registerTheaterModeComponentOnVideoJS();</script>
+	
+	
+		<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/AutoPlay.57fcc40c.js"></script>
+	
+	<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/lastMomentManager.b79a88c8.js"></script>
+	<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/VideoPlayer.463cb2c0.js"></script>
+	<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/scroll-top.acd0a474.js"></script>
+	<script>
+		new VideoPlayer().build();
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/partitura.ed5e8367.js"></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/audioProgress.049144a0.js"></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/audioPlayer.38483a63.js"></script>
+
+
+	<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/VideoTranscription.35d43dac.js"></script>
+	<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/MarkdownProcessing.4fa8352c.js"></script>
+	<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/clipboard.min.af8ab365.js"></script>
+	<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/Clipper.4471c01b.js"></script>
+	<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/scroll-to-top.1d1e7575.js"></script>
+	<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/shortcuts-action.eba8a7c6.js"></script>
+	<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/ModalAndAlertHandler.81e9a5c4.js"></script>
+	
+	
+    
+
+	
+
+	
+
+	<script>
+		new VideoTranscription();
+		new MarkdownProcessing("https://cursos.alura.com.br").onLoad();
+		new Clipper("Copiar código", "Código copiado!", "Falha ao copiar o código!");
+		window.addEventListener('load', () => new BackToTopButton().init());
+		new ModalAndAlertHandler('django-autenticacao-formularios-alerta').setupListeners();
+
+		const submitExamMessage = `Enviar avaliação`;
+	</script>
+
+
+
+
+
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/darkMode.d01066d5.js"></script>
+
+<script>new DarkModeToggler().refreshListener()</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/uploadImages.7c1a29db.css" rel="stylesheet">
+
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/UploadProgress.14749111.js"></script>
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/ImagesClient.b358c789.js"></script>
+
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/marked.min.c69e14e8.js"></script>
+
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/enableForumButtons.1293253c.js"></script>
+
+<script>
+    var IMAGE_UPLOAD_MESSAGES = {
+        imageUploadMessageInit: `Anexe arquivos arrastando e soltando`,
+        imageUploadMessageDragEnter: `Solte a imagem para fazer o upload`,
+        imageUploadMessageDrop: `Enviando a imagem #images_names#`,
+        imageUploadMessageProgress: `Enviando a imagem #images_names#: #progress#%`,
+        imageUploadMessageUploaded: `Imagem enviada com sucesso!`,
+        imageUploadMessageSizeUnits: `MB`,
+        imageUploadMessageTag: `![Insira aqui a descrição dessa imagem para ajudar na acessibilidade](#url#) `
+    }
+</script>
+
+
+    
+        <link href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/hackeditor.min.fcf421a7.css" rel="stylesheet">
+        <link href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/hackeditor.custom.e0057fb6.css" rel="stylesheet">
+        <link href="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/github.754087c4.css" rel="stylesheet">
+
+        <script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/hackeditor.min.fdc227ab.js"></script>
+        <script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/hackeditor.custom.b88c034d.js"></script>
+        <script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/highlight.min.9b99da81.js"></script>
+        <script>
+            const setupEditorsOnPage = (e) => {
+                const toolbarActionsHints = {
+                    toggleHeadingActionHint: `Título`,
+                    toggleBoldActionHint: `Negrito`,
+                    toggleItalicActionHint: `Itálico`,
+                    toggleOrderedListActionHint: `Lista ordenada`,
+                    toggleUnorderedListActionHint: `Lista não ordenada`,
+                    togglePreviewActionHint: `Pré-visualizar`,
+                    drawTableActionHint: `Inserir Tabela`,
+                    drawCodeActionHint: `Inserir bloco de código`,
+                    drawLinkActionHint: `Inserir Link`,
+                    drawImageActionHint: `Inserir Imagem`,
+                    drawUploadedImageActionHint: `Upload de imagem`,
+                    undoActionHint: `Desfazer`,
+                    redoActionHint: `Refazer`
+                }
+
+                const imageUploadErrors = {
+                    imageErrorLimit: `Você só pode inserir 5 imagens por vez!`,
+                    imageFileNotAllowed: `O arquivo filename não é permitido, apenas imagens!`,
+                    imageVeryLarge: `O arquivo filename é maior que o limite de 2 MB.`,
+                    imageMaliciousFile: `O arquivo filename contém conteúdo malicioso.`
+                }
+
+                window.editors = window.editors || [];
+
+                const editorsElements = window.editors.map(ed => ed.element.id);
+
+                const textAreaEditors = Array.from(document.querySelectorAll('.hackeditor > textarea'));
+                textAreaEditors
+                    .filter(e => e.closest('.taskForms') == null)
+                    .filter(e => editorsElements.length == 0 ? true : !editorsElements.includes(e.id))
+                    .forEach(editorTextArea => {
+                        const editor = setupHackEditor({
+                            editorOptions: {
+                                element: editorTextArea,
+                                initialValue: editorTextArea.innerText,
+                                syncPreview: true,
+                                maxHeight: "300px",
+                                toolbarActionsHints,
+                                imageUploadMessages: IMAGE_UPLOAD_MESSAGES,
+                                imageUploadErrors,
+                                imageUploadClient: new ImagesClient(
+                                    'https://www.gnarususercontent.com.br/images',
+                                    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTY0NDM0MzQsImtleSI6IjdiMjcwMTliLWRlNDgtNGQyZi1iOTYyLTFkOWYyMzcyZjliNyJ9.ZBnDO5eAPNeO8zVrIZiYM0RiHiFkaQMkGR3jHKyltD0',
+                                    1,
+                                    7660673
+                                ),
+                                allowImageUpload: editorTextArea.dataset.allowImageUpload
+                            },
+                            extensions: {
+                                DOMPurify,
+                                marked,
+                                hljs
+                            }
+                        });
+
+                        window.editors.push({
+                            instance: editor,
+                            element: editorTextArea,
+                        });
+
+                        enableForumButtons();
+                });
+            }
+
+            window.addEventListener('DOMContentLoaded', setupEditorsOnPage);
+            document.addEventListener('change', setupEditorsOnPage);
+        </script>
+    
+    
+
+
+<script src="Django_%20autentica%C3%A7%C3%A3o%20de%20formul%C3%A1rios%20e%20alerta_%20Aula%204%20-%20Atividade%202%20Refatora%C3%A7%C3%A3o%20e%20valida%C3%A7%C3%A3o%20_%20Alura%20-%20Cursos%20online%20de%20tecnologia_files/IframeChecker.05103d26.js"></script>
+
+
+<iframe height="0" width="0" style="display: none; visibility: hidden;"></iframe><script type="text/javascript" id="" charset="">(function(a,b,c,d){a[c]=a[c]||[];a[c].push({eventType:"init",value:d,dc:"us"});a=b.getElementsByTagName("script")[0];b=b.createElement("script");b.async=!0;b.src="https://tags.creativecdn.com/OiIKV8DdRsC6DWlZuu25.js";a.parentNode.insertBefore(b,a)})(window,document,"rtbhEvents","OiIKV8DdRsC6DWlZuu25");</script></body></html>
